@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Карточка врача стоматологической клиники NOVADENT.">
+  <meta name="theme-color" content="#f7fbfd">
+  <title>Врач — NOVADENT</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/data.js" defer></script>
+<script src="assets/js/common.js" defer></script>
+<script src="assets/js/doctor.js" defer></script>
+</head>
+<body>
+  
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html" aria-label="NOVADENT — главная">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span>NOVADENT</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+      <span></span>
+    </button>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <a href="services.html" data-nav>Услуги</a>
+      <a href="doctors.html" data-nav>Врачи</a>
+      <a href="index.html#calculator">Калькулятор</a>
+      <a href="index.html#contacts">Контакты</a>
+      <a class="btn btn-primary" href="booking.html" data-nav>Записаться</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<section class="detail-hero">
+  <div class="container">
+    <div class="detail-grid">
+      <div class="card detail-card">
+        <img id="doctor-image" src="" alt="" style="width:100%;max-width:500px;margin:0 auto 28px;border-radius:24px;background:var(--surface-soft);">
+        <span class="rating" id="doctor-rating">★</span>
+        <h1 id="doctor-name">Имя врача</h1>
+        <p class="lead" id="doctor-role"></p>
+        <p id="doctor-bio"></p>
+      </div>
+      <aside class="card detail-card detail-aside">
+        <span class="eyebrow">Опыт</span>
+        <h3 id="doctor-experience">—</h3>
+        <h3>Образование</h3>
+        <ul class="list-clean" id="doctor-education"></ul>
+        <a class="btn btn-primary btn-block" href="booking.html" data-book-doctor>Записаться к врачу</a>
+      </aside>
+    </div>
+  </div>
+</section>
+<section class="section section-soft">
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">Услуги</span>
+        <h2>Направления врача</h2>
+      </div>
+    </div>
+    <div class="cards-grid" id="doctor-services"></div>
+  </div>
+</section>
+
+  </main>
+  
+<footer class="site-footer" id="contacts">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="index.html">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <span>NOVADENT</span>
+        </a>
+        <p>Демонстрационный сайт современной стоматологической клиники.</p>
+      </div>
+      <div>
+        <div class="footer-title">Разделы</div>
+        <div class="footer-links">
+          <a href="services.html">Услуги</a>
+          <a href="doctors.html">Врачи</a>
+          <a href="booking.html">Онлайн-запись</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-title">Контакты</div>
+        <div class="footer-links">
+          <span>+7 (900) 000-12-34</span>
+          <span>hello@novadent-demo.ru</span>
+          <span>Москва, ул. Примерная, 18</span>
+        </div>
+      </div>
+      <div>
+        <div class="footer-title">Режим работы</div>
+        <div class="footer-links">
+          <span>Ежедневно</span>
+          <span>09:00–21:00</span>
+          <a href="https://t.me/kaizerdev" target="_blank" rel="noopener">Telegram: @kaizerdev</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> NOVADENT</span>
+      <span>Демонстрационный проект для портфолио</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

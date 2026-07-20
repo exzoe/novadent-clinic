@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Демонстрационный сайт стоматологической клиники с услугами, врачами, калькулятором и онлайн-записью.">
+  <meta name="theme-color" content="#f7fbfd">
+  <title>NOVADENT — современная стоматологическая клиника</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/data.js" defer></script>
+<script src="assets/js/common.js" defer></script>
+<script src="assets/js/home.js" defer></script>
+</head>
+<body>
+  
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html" aria-label="NOVADENT — главная">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span>NOVADENT</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+      <span></span>
+    </button>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <a href="services.html" data-nav>Услуги</a>
+      <a href="doctors.html" data-nav>Врачи</a>
+      <a href="index.html#calculator">Калькулятор</a>
+      <a href="index.html#contacts">Контакты</a>
+      <a class="btn btn-primary" href="booking.html" data-nav>Записаться</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Современная стоматология</span>
+        <h1>Спокойное лечение с понятным планом</h1>
+        <p class="lead">Диагностика, лечение и восстановление улыбки без спешки. Подберём врача, рассчитаем ориентировочную стоимость и найдём удобное время.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="booking.html">Записаться на приём</a>
+          <a class="btn btn-secondary" href="#calculator">Рассчитать стоимость</a>
+        </div>
+        <div class="hero-features">
+          <span>Понятные цены</span>
+          <span>Современная диагностика</span>
+          <span>Гарантия на лечение</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="assets/images/clinic-hero.svg" alt="Врач стоматологической клиники NOVADENT">
+      </div>
+    </div>
+
+    <div class="stats" aria-label="Показатели клиники">
+      <div class="stat"><strong>12</strong><span>специалистов</span></div>
+      <div class="stat"><strong>8 лет</strong><span>работаем ежедневно</span></div>
+      <div class="stat"><strong>15 000+</strong><span>пациентов</span></div>
+      <div class="stat"><strong>4.9</strong><span>средняя оценка</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">Популярные услуги</span>
+        <h2>От профилактики до восстановления улыбки</h2>
+        <p class="lead">Для каждой услуги указаны примерная стоимость, длительность и подходящие специалисты.</p>
+      </div>
+      <a class="link-arrow" href="services.html">Все услуги</a>
+    </div>
+    <div class="cards-grid" id="popular-services"></div>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">Почему NOVADENT</span>
+        <h2>Лечение без лишней неопределённости</h2>
+      </div>
+    </div>
+    <div class="benefits-grid">
+      <article class="card benefit">
+        <div class="benefit-number">01</div>
+        <h3>План до начала лечения</h3>
+        <p class="muted">Объясняем этапы, варианты и стоимость до проведения процедур.</p>
+      </article>
+      <article class="card benefit">
+        <div class="benefit-number">02</div>
+        <h3>Бережная анестезия</h3>
+        <p class="muted">Подбираем способ обезболивания под процедуру и состояние пациента.</p>
+      </article>
+      <article class="card benefit">
+        <div class="benefit-number">03</div>
+        <h3>Цифровая диагностика</h3>
+        <p class="muted">Используем снимки и цифровое планирование для точных решений.</p>
+      </article>
+      <article class="card benefit">
+        <div class="benefit-number">04</div>
+        <h3>Связь после приёма</h3>
+        <p class="muted">Остаёмся на связи и даём понятные рекомендации после лечения.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="calculator">
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">Калькулятор</span>
+        <h2>Узнайте предварительную стоимость</h2>
+        <p class="lead">Расчёт ориентировочный. Точная стоимость определяется врачом после осмотра и диагностики.</p>
+      </div>
+    </div>
+    <div class="calculator-layout">
+      <form class="card panel" id="calculator-form">
+        <div class="form-grid">
+          <div class="form-group full">
+            <label for="calc-service">Услуга</label>
+            <select id="calc-service"></select>
+          </div>
+          <div class="form-group">
+            <label for="calc-count">Количество зубов / единиц</label>
+            <input id="calc-count" type="number" min="1" max="8" value="1">
+          </div>
+          <div class="form-group">
+            <label for="calc-material">Вариант материала</label>
+            <select id="calc-material">
+              <option value="1">Стандартный</option>
+              <option value="1.25">Улучшенный</option>
+              <option value="1.5">Премиальный</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <span class="label">Дополнительно</span>
+            <div class="check-grid">
+              <label class="check-item">
+                <input id="calc-anesthesia" type="checkbox">
+                <span>Анестезия — 1 200 ₽</span>
+              </label>
+              <label class="check-item">
+                <input id="calc-diagnostics" type="checkbox">
+                <span>Диагностика — 1 800 ₽</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <aside class="card panel result-card">
+        <span class="eyebrow">Результат</span>
+        <h3 id="calc-title">Услуга</h3>
+        <div class="result-price" id="calc-price">0 ₽</div>
+        <p class="muted">Предварительная стоимость</p>
+        <div class="result-list">
+          <div class="result-row"><span>Время</span><strong id="calc-duration">—</strong></div>
+          <div class="result-row"><span>Консультация</span><strong>по показаниям</strong></div>
+        </div>
+        <button class="btn btn-primary btn-block" type="button" id="calc-booking">Перейти к записи</button>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">Команда</span>
+        <h2>Врачи, которые умеют объяснять</h2>
+      </div>
+      <a class="link-arrow" href="doctors.html">Все специалисты</a>
+    </div>
+    <div class="cards-grid" id="popular-doctors"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">Отзывы</span>
+        <h2>Что говорят пациенты</h2>
+      </div>
+    </div>
+    <div class="reviews-grid" id="reviews-grid"></div>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">Вопросы</span>
+        <h2>Перед первым визитом</h2>
+      </div>
+    </div>
+    <div class="faq-list">
+      <article class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">Больно ли лечить зубы?</button>
+        <div class="faq-answer">Большинство процедур проводится под местной анестезией. Врач заранее уточнит чувствительность и подберёт подходящий вариант обезболивания.</div>
+      </article>
+      <article class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">Нужны ли снимки перед приёмом?</button>
+        <div class="faq-answer">Приносить снимки необязательно. Если диагностика понадобится, врач объяснит, какой именно снимок нужен и зачем.</div>
+      </article>
+      <article class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">Сколько длится консультация?</button>
+        <div class="faq-answer">Обычно 30–45 минут. За это время врач проводит осмотр, обсуждает жалобы и предлагает план дальнейших действий.</div>
+      </article>
+      <article class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">Можно ли записать ребёнка?</button>
+        <div class="faq-answer">Да. Для первого знакомства можно выбрать адаптационный приём без обязательного лечения в тот же день.</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta">
+      <div class="cta-content">
+        <span class="eyebrow">Онлайн-запись</span>
+        <h2>Выберите врача и удобное время</h2>
+        <p class="lead">После заполнения сайт сформирует готовое сообщение для отправки в Telegram.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="booking.html">Записаться</a>
+          <a class="btn btn-secondary" href="https://t.me/kaizerdev" target="_blank" rel="noopener">Написать @kaizerdev</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </main>
+  
+<footer class="site-footer" id="contacts">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="index.html">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <span>NOVADENT</span>
+        </a>
+        <p>Демонстрационный сайт современной стоматологической клиники.</p>
+      </div>
+      <div>
+        <div class="footer-title">Разделы</div>
+        <div class="footer-links">
+          <a href="services.html">Услуги</a>
+          <a href="doctors.html">Врачи</a>
+          <a href="booking.html">Онлайн-запись</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-title">Контакты</div>
+        <div class="footer-links">
+          <span>+7 (900) 000-12-34</span>
+          <span>hello@novadent-demo.ru</span>
+          <span>Москва, ул. Примерная, 18</span>
+        </div>
+      </div>
+      <div>
+        <div class="footer-title">Режим работы</div>
+        <div class="footer-links">
+          <span>Ежедневно</span>
+          <span>09:00–21:00</span>
+          <a href="https://t.me/kaizerdev" target="_blank" rel="noopener">Telegram: @kaizerdev</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> NOVADENT</span>
+      <span>Демонстрационный проект для портфолио</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

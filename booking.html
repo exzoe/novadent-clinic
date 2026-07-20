@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Онлайн-запись в стоматологическую клинику NOVADENT.">
+  <meta name="theme-color" content="#f7fbfd">
+  <title>Онлайн-запись — NOVADENT</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/data.js" defer></script>
+<script src="assets/js/common.js" defer></script>
+<script src="assets/js/booking.js" defer></script>
+</head>
+<body>
+  
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html" aria-label="NOVADENT — главная">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span>NOVADENT</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+      <span></span>
+    </button>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <a href="services.html" data-nav>Услуги</a>
+      <a href="doctors.html" data-nav>Врачи</a>
+      <a href="index.html#calculator">Калькулятор</a>
+      <a href="index.html#contacts">Контакты</a>
+      <a class="btn btn-primary" href="booking.html" data-nav>Записаться</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<section class="detail-hero">
+  <div class="container">
+    <span class="eyebrow">Онлайн-запись</span>
+    <h1>Запишитесь за несколько шагов</h1>
+    <p class="lead">Выберите услугу, врача и время. В конце откроется Telegram с готовым сообщением.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="booking-shell">
+      <div class="card panel">
+        <div class="progress" aria-label="Прогресс записи">
+          <span class="active"></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <section class="booking-step">
+          <span class="eyebrow">Шаг 1</span>
+          <h2>Выберите услугу</h2>
+          <div class="option-grid" id="booking-services"></div>
+          <div class="error-text" data-error="service"></div>
+          <div class="booking-actions">
+            <span></span>
+            <button class="btn btn-primary" type="button" data-next>Продолжить</button>
+          </div>
+        </section>
+
+        <section class="booking-step" hidden>
+          <span class="eyebrow">Шаг 2</span>
+          <h2>Выберите врача</h2>
+          <div class="option-grid" id="booking-doctors"></div>
+          <div class="error-text" data-error="doctor"></div>
+          <div class="booking-actions">
+            <button class="btn btn-secondary" type="button" data-prev>Назад</button>
+            <button class="btn btn-primary" type="button" data-next>Продолжить</button>
+          </div>
+        </section>
+
+        <section class="booking-step" hidden>
+          <span class="eyebrow">Шаг 3</span>
+          <h2>Выберите дату и время</h2>
+          <h3>Дата</h3>
+          <div class="date-grid" id="booking-dates"></div>
+          <div class="error-text" data-error="date"></div>
+          <h3 style="margin-top:24px;">Время</h3>
+          <div class="time-grid" id="booking-times"></div>
+          <div class="error-text" data-error="time"></div>
+          <div class="booking-actions">
+            <button class="btn btn-secondary" type="button" data-prev>Назад</button>
+            <button class="btn btn-primary" type="button" data-next>Продолжить</button>
+          </div>
+        </section>
+
+        <section class="booking-step" hidden>
+          <span class="eyebrow">Шаг 4</span>
+          <h2>Данные пациента</h2>
+          <form id="patient-form" novalidate>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="patient-name">Имя</label>
+                <input id="patient-name" name="name" autocomplete="name">
+                <div class="error-text" data-error="name"></div>
+              </div>
+              <div class="form-group">
+                <label for="patient-phone">Телефон</label>
+                <input id="patient-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00">
+                <div class="error-text" data-error="phone"></div>
+              </div>
+              <div class="form-group full">
+                <label for="visit-type">Тип приёма</label>
+                <select id="visit-type" name="visitType">
+                  <option>Первичный</option>
+                  <option>Повторный</option>
+                </select>
+              </div>
+              <div class="form-group full">
+                <label for="patient-comment">Комментарий</label>
+                <textarea id="patient-comment" name="comment" maxlength="500" placeholder="Расскажите, что беспокоит"></textarea>
+              </div>
+              <div class="form-group full">
+                <label class="check-item">
+                  <input type="checkbox" name="consent" value="yes">
+                  <span>Согласен на обработку данных для формирования заявки</span>
+                </label>
+                <div class="error-text" data-error="consent"></div>
+              </div>
+            </div>
+          </form>
+          <div class="booking-actions">
+            <button class="btn btn-secondary" type="button" data-prev>Назад</button>
+            <button class="btn btn-primary" type="button" id="send-booking">Открыть Telegram</button>
+          </div>
+        </section>
+      </div>
+
+      <aside class="card panel summary">
+        <span class="eyebrow">Ваша запись</span>
+        <div class="summary-row"><span>Услуга</span><strong id="summary-service">Не выбрана</strong></div>
+        <div class="summary-row"><span>Врач</span><strong id="summary-doctor">Не выбран</strong></div>
+        <div class="summary-row"><span>Дата</span><strong id="summary-date">Не выбрана</strong></div>
+        <div class="summary-row"><span>Время</span><strong id="summary-time">Не выбрано</strong></div>
+        <div class="summary-row"><span>Стоимость</span><strong id="summary-price">—</strong></div>
+        <p class="small muted">Это демонстрационное расписание. Заявка отправляется в Telegram, но не бронируется в реальной базе данных.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+  </main>
+  
+<footer class="site-footer" id="contacts">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="index.html">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <span>NOVADENT</span>
+        </a>
+        <p>Демонстрационный сайт современной стоматологической клиники.</p>
+      </div>
+      <div>
+        <div class="footer-title">Разделы</div>
+        <div class="footer-links">
+          <a href="services.html">Услуги</a>
+          <a href="doctors.html">Врачи</a>
+          <a href="booking.html">Онлайн-запись</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-title">Контакты</div>
+        <div class="footer-links">
+          <span>+7 (900) 000-12-34</span>
+          <span>hello@novadent-demo.ru</span>
+          <span>Москва, ул. Примерная, 18</span>
+        </div>
+      </div>
+      <div>
+        <div class="footer-title">Режим работы</div>
+        <div class="footer-links">
+          <span>Ежедневно</span>
+          <span>09:00–21:00</span>
+          <a href="https://t.me/kaizerdev" target="_blank" rel="noopener">Telegram: @kaizerdev</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> NOVADENT</span>
+      <span>Демонстрационный проект для портфолио</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
